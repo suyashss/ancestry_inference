@@ -9,12 +9,12 @@ The files included are:
 
 2) freqs.txt and freqs.hg19.txt : AIM frequencies for the 5 continents (AFR = Africa; ASN = East Asia ; AMR = Americas ; SAN = South Asian ; EUR = European). The freqs.txt has b37 format for genome positions and freqs.hg19.txt has the Hg19 format.
 
-3) q_multipop_todistribute.r:  The R file that does all the work. You will need the "plyr" package and the "nloptr" package installed along with R. The script currently outputs proportion of ancestry from each continental population, one line per sample, to the standard output.
+3) infer_ancestry_from_vcf.r:  The R file that does all the work. You will need the "plyr" package and the "nloptr" package installed along with R. The script currently outputs proportion of ancestry from each continental population, one line per sample, to the standard output.
 
 	The q_multipop_todistribute.r script takes in two arguments :
 1) A file with AIM frequencies for populations (freqs.txt or freqs.hg19.txt) .
-2) A vcf file, which has only SNPs, has sites filtered only to the AIM locations provided  and assumes that the only field present in the format is "GT" or the genotype. The vcf file is not gzipped. I used vcftools to do this with the command - vcftools --gzvcf <infile.vcf.gz> --bed aims.bed --out <outfile> --recode --remove-indels --min-alleles 2 --max-alleles 2 --remove-filtered-all
+2) A vcf file, which has only SNPs, has sites filtered only to the AIM locations provided  and assumes that the first field present in the format is "GT" or the genotype. The vcf file is not gzipped. I used vcftools to do this with the command - vcftools --gzvcf <infile.vcf.gz> --bed aims.bed --out <outfile> --recode --remove-indels --min-alleles 2 --max-alleles 2 --remove-filtered-all
 
-Run this as: Rscript q_multipop_todistribute.r <frequencyfile> <vcffile>
+Run this as: Rscript infer_ancestry_from_vcf.r <frequencyfile> <vcffile>
 
 
