@@ -11,7 +11,7 @@ The files included are:
 
 * infer_ancestry_from_vcf.r:  The R file that does all the work. You will need the "plyr" package and the "nloptr" package installed along with R. The script currently outputs proportion of ancestry from each continental population, one line per sample, to the standard output.
 
-	The q_multipop_todistribute.r script takes in two arguments :
+The infer_ancestry_from_vcf.r script takes in two arguments :
 * A file with AIM frequencies for populations (freqs.txt or freqs.hg19.txt) .
 * A vcf file, which has only SNPs, has sites filtered only to the AIM locations provided  and assumes that the first field present in the format is "GT" or the genotype. The vcf file is not gzipped. I used vcftools to do this with the command - vcftools --gzvcf <infile.vcf.gz> --bed aims.bed --out <outfile> --recode --remove-indels --min-alleles 2 --max-alleles 2 --remove-filtered-all
 
